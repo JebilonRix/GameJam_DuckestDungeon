@@ -1,4 +1,5 @@
 using System;
+using SEP;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -18,9 +19,17 @@ public class PlayerController : MonoBehaviour
 
     [Header("Depedencies")] 
     [SerializeField] private Rigidbody2D _rigidbody2D;
-
+    [SerializeField] private BackpackManager _backpackManager;
+    
     private bool _isInRangeOfNpcInteraction;
     private NpcController _inRangeNpcController;
+    
+    private InputFlag _moveUpFlag = new InputFlag(KeyCode.W);
+    private InputFlag _moveDownFlag = new InputFlag(KeyCode.S);
+    private InputFlag _moveRightFlag = new InputFlag(KeyCode.D);
+    private InputFlag _moveLeftFlag = new InputFlag(KeyCode.A);
+    private InputFlag _interactionFlag = new InputFlag(KeyCode.E);
+    private InputFlag _confirmationFlag = new InputFlag(KeyCode.Space);
     
     private void Awake()
     {
@@ -49,7 +58,6 @@ public class PlayerController : MonoBehaviour
         {
             InteractWithNpc(_inRangeNpcController);
         }
-        
     }
 
     private void InteractWithNpc(NpcController inRangeNpcController)
@@ -97,4 +105,92 @@ public class PlayerController : MonoBehaviour
             _isInRangeOfNpcInteraction = false;
         }
     }
+    
+    private void Update()
+    {
+        _moveUpFlag.SetFlags();
+        _moveDownFlag.SetFlags();
+        _moveRightFlag.SetFlags();
+        _moveLeftFlag.SetFlags();
+        _interactionFlag.SetFlags();
+        _confirmationFlag.SetFlags();
+    }
+    
+    public void FixedUpdate()
+    {
+        if (_backpackManager.IsBackpackActive)
+        {
+            if (_moveRightFlag.Start)
+            {
+                _backpackManager.OnRightCommandTrigger();
+            }
+
+            if (_moveLeftFlag.Start)
+            {
+                _backpackManager.OnLeftCommandTrigger();
+            }
+
+            if (_confirmationFlag.Start)
+            {
+                
+            }
+            
+        }
+        else
+        {
+            #region Movement
+
+            Vector2 movement = Vector2.zero;
+
+            if (_moveUpFlag.Update)
+            {
+                movement += Vector2.up;
+            }
+
+            if (_moveDownFlag.Update)
+            {
+                movement += Vector2.down;
+            }
+
+
+            if (_moveRightFlag.Update)
+            {
+                movement += Vector2.right;
+            }
+
+            if (_moveLeftFlag.Update)
+            {
+                movement += Vector2.left;
+            }
+
+            if (movement.magnitude < 0.5f)
+            {
+                PlayerController.Instance.Move(0, 0, false);
+            }
+            else
+            {
+                PlayerController.Instance.Move(movement.normalized.x, movement.normalized.y, true);
+            }
+
+
+            #endregion
+        }
+        
+        if (_interactionFlag.Start)
+        {
+            PlayerController.Instance.OnInteractionCommandTrigger();
+        }
+        if (_confirmationFlag.Start)
+        {
+            PlayerController.Instance.OnConfirmationCommandTrigger();
+        }
+
+        _moveUpFlag.ResetStartEndFlags();
+        _moveDownFlag.ResetStartEndFlags();
+        _moveRightFlag.ResetStartEndFlags();
+        _moveLeftFlag.ResetStartEndFlags();
+        _interactionFlag.ResetStartEndFlags();
+        _confirmationFlag.ResetStartEndFlags();
+    }
+    
 }

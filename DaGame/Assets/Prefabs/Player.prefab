@@ -106,6 +106,7 @@ MonoBehaviour:
   notWalking: {fileID: 3317362781817092392, guid: 7846559d23baac64880c9f6462a55ffb, type: 2}
   mixer: {fileID: 24100000, guid: 7846559d23baac64880c9f6462a55ffb, type: 2}
   _rigidbody2D: {fileID: 4418042451774489297}
+  _backpackManager: {fileID: 0}
 --- !u!82 &2487406950532764374
 AudioSource:
   m_ObjectHideFlags: 0
