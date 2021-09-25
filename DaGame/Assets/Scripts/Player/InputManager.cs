@@ -59,11 +59,11 @@ public class InputManager : MonoBehaviour
 
         if (movement.magnitude < 0.5f)
         {
-            TopDownMovement.instance.Move(0, 0, false);
+            PlayerController.Instance.Move(0, 0, false);
         }
         else
         {
-            TopDownMovement.instance.Move(movement.normalized.x, movement.normalized.y, true);
+            PlayerController.Instance.Move(movement.normalized.x, movement.normalized.y, true);
         }
 
 
@@ -71,11 +71,11 @@ public class InputManager : MonoBehaviour
 
         if (_interactionFlag.Start)
         {
-            interaction = true;
+            PlayerController.Instance.OnInteractionCommandTrigger();
         }
         if (_confirmationFlag.Start)
         {
-            confirmation = true;
+            PlayerController.Instance.OnConfirmationCommandTrigger();
         }
 
         _moveUpFlag.ResetStartEndFlags();
@@ -86,5 +86,5 @@ public class InputManager : MonoBehaviour
         _confirmationFlag.ResetStartEndFlags();
     }
 
-    public bool interaction, confirmation;
+   
 }
