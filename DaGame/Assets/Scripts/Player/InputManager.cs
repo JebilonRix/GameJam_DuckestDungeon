@@ -1,13 +1,18 @@
+using SEP;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
     public static InputManager instance;
-
-    [SerializeField]
-    KeyCode MoveUp = KeyCode.W, MoveDown = KeyCode.S, MoveRight = KeyCode.D,
-        MoveLeft = KeyCode.A, Interaction = KeyCode.E, Confimation = KeyCode.Space;
-
+    
+    private InputFlag _moveUpFlag = new InputFlag(KeyCode.W);
+    private InputFlag _moveDownFlag = new InputFlag(KeyCode.S);
+    private InputFlag _moveRightFlag = new InputFlag(KeyCode.D);
+    private InputFlag _moveLeftFlag = new InputFlag(KeyCode.A);
+    private InputFlag _interactionFlag = new InputFlag(KeyCode.E);
+    private InputFlag _confirmationFlag = new InputFlag(KeyCode.Space);
+    
+    
     private void Awake()
     {
         if (instance == null)
@@ -17,50 +22,72 @@ public class InputManager : MonoBehaviour
     }
     private void Update()
     {
-        #region Movement
-        Vector2 movement = Vector2.zero;
         
-        if (Input.GetKey(MoveUp))
+        _moveUpFlag.SetFlags();
+        _moveDownFlag.SetFlags();
+        _moveRightFlag.SetFlags();
+        _moveLeftFlag.SetFlags();
+        _interactionFlag.SetFlags();
+        _confirmationFlag.SetFlags();
+        
+    }
+
+
+    public void FixedUpdate()
+    {
+        #region Movement
+
+        Vector2 movement = Vector2.zero;
+
+        if (_moveUpFlag.Update)
         {
             movement += Vector2.up;
         }
 
-        if (Input.GetKey(MoveDown))
+        if (_moveDownFlag.Update)
         {
             movement += Vector2.down;
         }
 
-
-        if (Input.GetKey(MoveRight))
+        
+        if (_moveRightFlag.Update)
         {
             movement += Vector2.right;
         }
 
-
-        if (Input.GetKey(MoveLeft))
+        if (_moveLeftFlag.Update)
         {
             movement += Vector2.left;
         }
 
-
-        if (movement.magnitude < 0.1f)
+        if (movement.magnitude < 0.5f)
         {
             TopDownMovement.instance.Move(0,0,false);
         }
         else
         {
-            TopDownMovement.instance.Move(movement.normalized.x, movement.normalized.y,true);
+            TopDownMovement.instance.Move(movement.normalized.x, movement.normalized.y, true);
         }
         
+        
         #endregion
-
-        if (Input.GetKeyDown(Interaction))
-        {
-
-        }
-        if (Input.GetKeyDown(Confimation))
-        {
-
-        }
+        
+        
+        // if (Input.GetKeyDown(Interaction))
+        // {
+        //
+        // }
+        // if (Input.GetKeyDown(Confimation))
+        // {
+        //
+        // }
+        
+        _moveUpFlag.ResetStartEndFlags();
+        _moveDownFlag.ResetStartEndFlags();
+        _moveRightFlag.ResetStartEndFlags();
+        _moveLeftFlag.ResetStartEndFlags();
+        _interactionFlag.ResetStartEndFlags();
+        _confirmationFlag.ResetStartEndFlags();
+        
     }
 }

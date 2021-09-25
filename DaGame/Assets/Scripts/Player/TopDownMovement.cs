@@ -35,7 +35,7 @@ public class TopDownMovement : MonoBehaviour
     }
     public void Move(float x, float y, bool play = true)
     {
-        _rigidbody2D.MovePosition(_rigidbody2D.position + new Vector2(x, y) * (WalkingSpeed * Time.deltaTime));
+        _rigidbody2D.MovePosition(_rigidbody2D.position + new Vector2(x, y) * (WalkingSpeed * Time.fixedDeltaTime));
 
         PlayWalkSFX(play);
     }
