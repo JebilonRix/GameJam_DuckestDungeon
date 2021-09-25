@@ -33,7 +33,7 @@ public class TopDownMovement : MonoBehaviour
     {
         source.Play();
     }
-    public void Move(int x, int y, bool play = true)
+    public void Move(float x, float y, bool play = true)
     {
         _rigidbody2D.MovePosition(_rigidbody2D.position + new Vector2(x, y) * (WalkingSpeed * Time.deltaTime));
 

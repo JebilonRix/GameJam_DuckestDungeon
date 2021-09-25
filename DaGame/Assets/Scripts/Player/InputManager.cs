@@ -41,6 +41,7 @@ public class InputManager : MonoBehaviour
     public void FixedUpdate()
     {
         #region Movement
+<<<<<<< HEAD
        
         if (_moveUpFlag.End)
         {
@@ -54,9 +55,17 @@ public class InputManager : MonoBehaviour
         if (_moveDownFlag.End)
         {
             TopDownMovement.instance.Move(0, 0, false);
+=======
+        Vector2 movement = Vector2.zero;
+        
+        if (Input.GetKey(MoveUp))
+        {
+            movement += Vector2.up;
+>>>>>>> alpago
         }
         else if (_moveDownFlag.Update)
         {
+<<<<<<< HEAD
             TopDownMovement.instance.Move(0, -1);
         }
 
@@ -65,18 +74,45 @@ public class InputManager : MonoBehaviour
             TopDownMovement.instance.Move(0, 0, false);
         }
         else if (_moveRightFlag.Update)
-        {
-            TopDownMovement.instance.Move(1, 0);
+=======
+            movement += Vector2.down;
         }
 
+
+        if (Input.GetKey(MoveRight))
+>>>>>>> alpago
+        {
+            movement += Vector2.right;
+        }
+
+<<<<<<< HEAD
         if (_moveLeftFlag.End)
+=======
+
+        if (Input.GetKey(MoveLeft))
+>>>>>>> alpago
         {
-            TopDownMovement.instance.Move(0, 0, false);
+            movement += Vector2.left;
         }
+<<<<<<< HEAD
         else if (_moveLeftFlag.Update)
+=======
+
+
+        if (movement.magnitude < 0.1f)
+>>>>>>> alpago
         {
-            TopDownMovement.instance.Move(-1, 0);
+            TopDownMovement.instance.Move(0,0,false);
         }
+<<<<<<< HEAD
+=======
+        else
+        {
+            TopDownMovement.instance.Move(movement.normalized.x, movement.normalized.y,true);
+        }
+        
+        #endregion
+>>>>>>> alpago
 
         #endregion
         
