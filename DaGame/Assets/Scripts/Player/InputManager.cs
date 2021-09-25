@@ -4,15 +4,15 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public static InputManager instance;
-    
+
     private InputFlag _moveUpFlag = new InputFlag(KeyCode.W);
     private InputFlag _moveDownFlag = new InputFlag(KeyCode.S);
     private InputFlag _moveRightFlag = new InputFlag(KeyCode.D);
     private InputFlag _moveLeftFlag = new InputFlag(KeyCode.A);
     private InputFlag _interactionFlag = new InputFlag(KeyCode.E);
     private InputFlag _confirmationFlag = new InputFlag(KeyCode.Space);
-    
-    
+
+
     private void Awake()
     {
         if (instance == null)
@@ -22,16 +22,13 @@ public class InputManager : MonoBehaviour
     }
     private void Update()
     {
-        
         _moveUpFlag.SetFlags();
         _moveDownFlag.SetFlags();
         _moveRightFlag.SetFlags();
         _moveLeftFlag.SetFlags();
         _interactionFlag.SetFlags();
         _confirmationFlag.SetFlags();
-        
     }
-
 
     public void FixedUpdate()
     {
@@ -49,7 +46,7 @@ public class InputManager : MonoBehaviour
             movement += Vector2.down;
         }
 
-        
+
         if (_moveRightFlag.Update)
         {
             movement += Vector2.right;
@@ -62,32 +59,32 @@ public class InputManager : MonoBehaviour
 
         if (movement.magnitude < 0.5f)
         {
-            TopDownMovement.instance.Move(0,0,false);
+            TopDownMovement.instance.Move(0, 0, false);
         }
         else
         {
             TopDownMovement.instance.Move(movement.normalized.x, movement.normalized.y, true);
         }
-        
-        
+
+
         #endregion
-        
-        
-        // if (Input.GetKeyDown(Interaction))
-        // {
-        //
-        // }
-        // if (Input.GetKeyDown(Confimation))
-        // {
-        //
-        // }
-        
+
+        if (_interactionFlag.Start)
+        {
+            interaction = true;
+        }
+        if (_confirmationFlag.Start)
+        {
+            confirmation = true;
+        }
+
         _moveUpFlag.ResetStartEndFlags();
         _moveDownFlag.ResetStartEndFlags();
         _moveRightFlag.ResetStartEndFlags();
         _moveLeftFlag.ResetStartEndFlags();
         _interactionFlag.ResetStartEndFlags();
         _confirmationFlag.ResetStartEndFlags();
-        
     }
+
+    public bool interaction, confirmation;
 }
