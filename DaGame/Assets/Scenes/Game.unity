@@ -249,12 +249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dae2c2583a144c48b4cfffb035b3d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveUp: 119
-  MoveDown: 115
-  MoveRight: 100
-  MoveLeft: 97
-  Interaction: 101
-  Confimation: 32
 --- !u!1 &1441459340
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +335,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2487406950532764374, guid: 01bf7042d390063498b590966175cc1b, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 2793287728758605575, guid: 7846559d23baac64880c9f6462a55ffb, type: 2}
     - target: {fileID: 2487406950532764375, guid: 01bf7042d390063498b590966175cc1b, type: 3}
       propertyPath: WalkingSpeed
       value: 7.5
