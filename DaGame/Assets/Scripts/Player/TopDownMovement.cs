@@ -43,11 +43,11 @@ public class TopDownMovement : MonoBehaviour
     {
         if (play)
         {
-            walking.TransitionTo(0.05f);
+            walking.TransitionTo(0.1f);
         }
         else
         {
-            notWalking.TransitionTo(0.05f);
+            notWalking.TransitionTo(0.1f);
         }
     }
 }
