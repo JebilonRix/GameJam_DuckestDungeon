@@ -15,6 +15,10 @@ public class TopDownMovement : MonoBehaviour
     [SerializeField] private AudioMixerSnapshot notWalking;
     [SerializeField] private AudioMixer mixer;
 
+    [Header("Depedencies")] 
+    [SerializeField] private Rigidbody2D _rigidbody2D;
+
+    
     private void Awake()
     {
         if (instance == null)
@@ -31,7 +35,7 @@ public class TopDownMovement : MonoBehaviour
     }
     public void Move(int x, int y, bool play = true)
     {
-        playerPrefab.transform.position += new Vector3(x, y) * WalkingSpeed * Time.deltaTime;
+        _rigidbody2D.MovePosition(_rigidbody2D.position + new Vector2(x, y) * (WalkingSpeed * Time.deltaTime));
 
         PlayWalkSFX(play);
     }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2487406950532764329}
   - component: {fileID: 2487406950532764375}
   - component: {fileID: 2487406950532764374}
+  - component: {fileID: 4418042451774489297}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -97,12 +98,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 2487406950532764330}
-  WalkingSpeed: 7.5
+  WalkingSpeed: 75
   source: {fileID: 2487406950532764374}
   walkingSFX: {fileID: 8300000, guid: 1a75a3e098192fa4f80df9ce564fbb1a, type: 3}
   walking: {fileID: -3838331808388739579, guid: 7846559d23baac64880c9f6462a55ffb, type: 2}
   notWalking: {fileID: 3317362781817092392, guid: 7846559d23baac64880c9f6462a55ffb, type: 2}
   mixer: {fileID: 24100000, guid: 7846559d23baac64880c9f6462a55ffb, type: 2}
+  _rigidbody2D: {fileID: 4418042451774489297}
 --- !u!82 &2487406950532764374
 AudioSource:
   m_ObjectHideFlags: 0
@@ -199,3 +201,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &4418042451774489297
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2487406950532764330}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
