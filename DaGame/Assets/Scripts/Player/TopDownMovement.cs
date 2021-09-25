@@ -29,7 +29,7 @@ public class TopDownMovement : MonoBehaviour
     {
         source.Play();
     }
-    public void Move(int x, int y, bool play = true)
+    public void Move(float x, float y, bool play = true)
     {
         playerPrefab.transform.position += new Vector3(x, y) * WalkingSpeed * Time.deltaTime;
 

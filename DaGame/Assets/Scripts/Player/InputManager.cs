@@ -18,41 +18,40 @@ public class InputManager : MonoBehaviour
     private void Update()
     {
         #region Movement
+        Vector2 movement = Vector2.zero;
+        
         if (Input.GetKey(MoveUp))
         {
-            TopDownMovement.instance.Move(0, 1);
-        }
-        else if (Input.GetKeyUp(MoveUp))
-        {
-            TopDownMovement.instance.Move(0, 0, false);
+            movement += Vector2.up;
         }
 
         if (Input.GetKey(MoveDown))
         {
-            TopDownMovement.instance.Move(0, -1);
+            movement += Vector2.down;
         }
-        else if (Input.GetKeyUp(MoveDown))
-        {
-            TopDownMovement.instance.Move(0, 0, false);
-        }
+
 
         if (Input.GetKey(MoveRight))
         {
-            TopDownMovement.instance.Move(1, 0);
+            movement += Vector2.right;
         }
-        else if (Input.GetKeyUp(MoveRight))
-        {
-            TopDownMovement.instance.Move(0, 0, false);
-        }
+
 
         if (Input.GetKey(MoveLeft))
         {
-            TopDownMovement.instance.Move(-1, 0);
+            movement += Vector2.left;
         }
-        else if (Input.GetKeyUp(MoveLeft))
+
+
+        if (movement.magnitude < 0.1f)
         {
-            TopDownMovement.instance.Move(0, 0, false);
+            TopDownMovement.instance.Move(0,0,false);
         }
+        else
+        {
+            TopDownMovement.instance.Move(movement.normalized.x, movement.normalized.y,true);
+        }
+        
         #endregion
 
         if (Input.GetKeyDown(Interaction))
