@@ -32,18 +32,34 @@ public class BackpackManager : MonoBehaviour
 
     public void OnRightCommandTrigger()
     {
-        _slotIndex = (_slotIndex+1) % _slots.Count;
+        OnSlotDeselected();
+        _slotIndex = (_slotIndex+1+_slots.Count) % _slots.Count;
+        OnSlotSelected();
     }
 
     public void OnLeftCommandTrigger()
     {
-        _slotIndex = (_slotIndex-1) % _slots.Count;
+        OnSlotDeselected();
+        _slotIndex = (_slotIndex-1 + _slots.Count) % _slots.Count;
+        OnSlotSelected();
     }
 
+    private void OnSlotDeselected()
+    {
+        _slots[_slotIndex].OnDeselected();
+    }
+
+    private void OnSlotSelected()
+    {
+        _slots[_slotIndex].OnSelected();
+    }
+    
     public void OpenBackpack()
     {
+        _slotIndex = 0;
+        _slots[0].OnSelected(true);
+        
         _isBackpackActive = true;
-
         _ctnBackpackRectTransform.anchoredPosition = new Vector2(0, _backpackDisabledYPos);
         _ctnBackpack.SetActive(true);
         _ctnBackpackRectTransform.DOAnchorPosY(_backpackEnabledYPos, 0.5f);
@@ -66,6 +82,11 @@ public class BackpackManager : MonoBehaviour
                 .SetEase(Ease.InBack)
                 .OnComplete( () =>
                 {
+                    foreach (var VARIABLE in _slots)
+                    {
+                        VARIABLE.OnDeselected(true);
+                    }
+                    
                     _ctnBackpack.SetActive(false);
                 } );
         }
@@ -98,8 +119,6 @@ public class BackpackManager : MonoBehaviour
         {
             Debug.LogError("NOT ENOUGH SLOTS!");
         }
-        
-        
     }
 
     public void RemoveItem(BackpackItemInfo info)
