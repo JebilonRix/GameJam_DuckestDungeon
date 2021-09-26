@@ -72,9 +72,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 633122653
+  m_SortingLayer: 3
+  m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0.05724907, g: 0, b: 1, a: 1}
   m_FlipX: 0
@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 2487406950532764330}
-  WalkingSpeed: 30
+  WalkingSpeed: 15
   source: {fileID: 2487406950532764374}
-  walkingSFX: {fileID: 8300000, guid: 1a75a3e098192fa4f80df9ce564fbb1a, type: 3}
+  walkingSFX: {fileID: 8300000, guid: 30a03ab56f836ea4aadc6f31d65cd887, type: 3}
   walking: {fileID: -3838331808388739579, guid: 7846559d23baac64880c9f6462a55ffb, type: 2}
   notWalking: {fileID: 3317362781817092392, guid: 7846559d23baac64880c9f6462a55ffb, type: 2}
   mixer: {fileID: 24100000, guid: 7846559d23baac64880c9f6462a55ffb, type: 2}
@@ -117,7 +117,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 2793287728758605575, guid: 7846559d23baac64880c9f6462a55ffb, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 1a75a3e098192fa4f80df9ce564fbb1a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 30a03ab56f836ea4aadc6f31d65cd887, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -125,7 +125,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 125
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

@@ -17,31 +17,38 @@ public class EscMenu : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !isActivated)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            escCanvas.SetActive(true);
-            StartCoroutine(ButtonDelay());
+            if (isActivated)
+            {
+                ExitMenu();
+            }
+            else
+            {
+                EnterMenu();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.Escape) && isActivated)
-        {
-            escCanvas.SetActive(false);
-            StartCoroutine(ButtonDelay());
-        }
+    }
 
-        if (isActivated)
-        {
-            snapshotMenu.TransitionTo(0.2f);
-        }
-        else
-        {
-            snapshotNormal.TransitionTo(0.2f);
-        }
-    }
-    IEnumerator ButtonDelay()
+    private void EnterMenu()
     {
-        yield return new WaitForSeconds(0.1f);
+        escCanvas.SetActive(true);
         isActivated = !isActivated;
+        snapshotMenu.TransitionTo(0.2f);
     }
+
+    private void ExitMenu()
+    {
+        escCanvas.SetActive(false);
+        isActivated = !isActivated;
+        snapshotNormal.TransitionTo(0.2f);
+    }
+
+    // IEnumerator ButtonDelay()
+    // {
+    //     yield return new WaitForSeconds(0.1f);
+    //     isActivated = !isActivated;
+    // }
 
     public void Button_Deactivate()
     {
