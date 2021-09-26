@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67d3e7dec65406c45ac97c959f71e95b, type: 3}
-  m_Name: Hamsi
+  m_Name: Dragon
   m_EditorClassIdentifier: 
-  IdleAnim: {fileID: 9100000, guid: 219ce8d13674b8247907c18d2d7fb5f6, type: 2}
+  IdleAnim: {fileID: 9100000, guid: 44d2bd2870fed0a439e6372cf69fd900, type: 2}
   Pairs: []
   TakeSprites:
-  - {fileID: 1471553536044746450, guid: f53a690ca17a8084f9c343cc0ed3db75, type: 3}
-  - {fileID: 8805386023133339512, guid: f53a690ca17a8084f9c343cc0ed3db75, type: 3}
-  - {fileID: -7658558640704256110, guid: f53a690ca17a8084f9c343cc0ed3db75, type: 3}
+  - {fileID: 9212622903005025987, guid: 7c4ab9dd4975cc646a5b5b8db60312a1, type: 3}
+  - {fileID: 7694130155886038556, guid: 7c4ab9dd4975cc646a5b5b8db60312a1, type: 3}
+  - {fileID: -776585644836929119, guid: 7c4ab9dd4975cc646a5b5b8db60312a1, type: 3}
