@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private BackpackManager _backpackManager;
     
     private bool _isInRangeOfNpcInteraction;
+    private bool _isInteractingWithNpc;
     private NpcController _inRangeNpcController;
     
     private InputFlag _moveUpFlag = new InputFlag(KeyCode.W);
@@ -56,20 +57,51 @@ public class PlayerController : MonoBehaviour
     {
         if (_isInRangeOfNpcInteraction)
         {
-            InteractWithNpc(_inRangeNpcController);
+
+            if (_isInteractingWithNpc== false)
+            {
+                _isInteractingWithNpc = true;
+            }
+            
+            _inRangeNpcController.PlayerInteractionSignal(this);
+        }
+    }
+    
+    
+    public void CloseInteractionWithNpc()
+    {
+        if (_isInteractingWithNpc)
+        {
+            _isInteractingWithNpc = false;
+        }
+    }
+    
+    
+    public void OnInRangeOfNpcInteractionValueChange()
+    {
+        if (_isInRangeOfNpcInteraction)
+        {
+            // On player is in range
+        }
+        else
+        {
+            // On player out of range
+        }
+        
+    }
+    
+    public void OpenBackpackSignal()
+    {
+        if (_backpackManager.IsBackpackActive)
+        {
+            
+        }
+        else
+        {
+            _backpackManager.OpenBackpack();
         }
     }
 
-    private void InteractWithNpc(NpcController inRangeNpcController)
-    {
-        Debug.Log("Interacted");
-    }
-
-    public void OnConfirmationCommandTrigger()
-    {
-       
-    }
-    
     
     public void PlayWalkSFX(bool play)
     {
@@ -82,6 +114,8 @@ public class PlayerController : MonoBehaviour
             notWalking.TransitionTo(0.1f);
         }
     }
+    
+    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -90,7 +124,13 @@ public class PlayerController : MonoBehaviour
         if (behaviour != null)
         {
             _inRangeNpcController = behaviour.ParentController;
-            _isInRangeOfNpcInteraction = true;
+
+            if (_isInRangeOfNpcInteraction == false)
+            {
+                _isInRangeOfNpcInteraction = true;
+                OnInRangeOfNpcInteractionValueChange();
+            }
+            
         }
 
     }
@@ -102,7 +142,12 @@ public class PlayerController : MonoBehaviour
         if (behaviour != null)
         {
             _inRangeNpcController = null;
-            _isInRangeOfNpcInteraction = false;
+
+            if (_isInRangeOfNpcInteraction == true)
+            {
+                _isInRangeOfNpcInteraction = false;
+                OnInRangeOfNpcInteractionValueChange();
+            }
         }
     }
     
@@ -132,9 +177,25 @@ public class PlayerController : MonoBehaviour
 
             if (_confirmationFlag.Start)
             {
-                
+                var info = _backpackManager.GetItemInfo();
+
+                OnGetItemInfoFromBackpack(info);
+                _backpackManager.CloseBackpack();
+
             }
             
+        }
+        else if (_isInteractingWithNpc)
+        {
+            if (_moveUpFlag.Start)
+            {
+               _inRangeNpcController.PlayerUpSignal();
+            }
+
+            if (_moveDownFlag.Start)
+            {
+                _inRangeNpcController.PlayerDownSignal();
+            }
         }
         else
         {
@@ -176,14 +237,12 @@ public class PlayerController : MonoBehaviour
             #endregion
         }
         
+        
         if (_interactionFlag.Start)
         {
             PlayerController.Instance.OnInteractionCommandTrigger();
         }
-        if (_confirmationFlag.Start)
-        {
-            PlayerController.Instance.OnConfirmationCommandTrigger();
-        }
+
 
         _moveUpFlag.ResetStartEndFlags();
         _moveDownFlag.ResetStartEndFlags();
@@ -192,5 +251,21 @@ public class PlayerController : MonoBehaviour
         _interactionFlag.ResetStartEndFlags();
         _confirmationFlag.ResetStartEndFlags();
     }
-    
+
+    private void OnGetItemInfoFromBackpack(BackpackManager.BackpackItemInfo info)
+    {
+        if (_isInteractingWithNpc)
+        {
+            if (_inRangeNpcController.IsItemFeasible(info))
+            {
+                _inRangeNpcController.FeedItem(info);
+
+                if (!info.IsEmpty)
+                {
+                    _backpackManager.RemoveItem(info);
+                }
+            }
+        }
+        
+    }
 }

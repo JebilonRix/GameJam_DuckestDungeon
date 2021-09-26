@@ -3050,9 +3050,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6116709212539272790, guid: ee56d1e8ed289c84aab69256cad22256, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6116709212539272790, guid: ee56d1e8ed289c84aab69256cad22256, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6116709212539272791, guid: ee56d1e8ed289c84aab69256cad22256, type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6116709212539272792, guid: ee56d1e8ed289c84aab69256cad22256, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6116709212539272793, guid: ee56d1e8ed289c84aab69256cad22256, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6116709212539272794, guid: ee56d1e8ed289c84aab69256cad22256, type: 3}
       propertyPath: m_RootOrder
@@ -3263,6 +3279,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7218737913559307461, guid: 5022b9d6bf78125489158fe2f34005c2, type: 3}
+      propertyPath: _ctnBackpack
+      value: 
+      objectReference: {fileID: 1185676186}
     - target: {fileID: 7218737913559307461, guid: 5022b9d6bf78125489158fe2f34005c2, type: 3}
       propertyPath: _slots.Array.size
       value: 10

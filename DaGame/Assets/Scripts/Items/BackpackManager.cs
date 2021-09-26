@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class BackpackManager : MonoBehaviour
 {
     [Header("Dependendices")] 
+    [SerializeField] private GameObject _ctnBackpack;
     [SerializeField] private List<BackpackSlotController> _slots;
 
     [Header("Settings")]
@@ -12,8 +14,13 @@ public class BackpackManager : MonoBehaviour
 
     private bool _isBackpackActive;
     private int _slotIndex;
-
     public bool IsBackpackActive => _isBackpackActive;
+
+
+    private void Start()
+    {
+        CloseBackpack();
+    }
 
     public void OnRightCommandTrigger()
     {
@@ -28,11 +35,13 @@ public class BackpackManager : MonoBehaviour
     public void OpenBackpack()
     {
         _isBackpackActive = true;
+        _ctnBackpack.SetActive(true);
     }
 
     public void CloseBackpack()
     {
         _isBackpackActive = false;
+        _ctnBackpack.SetActive(false);
     }
     
     public void InsertItem(Item item)
@@ -62,9 +71,9 @@ public class BackpackManager : MonoBehaviour
         
     }
 
-    public void RemoveItem()
+    public void RemoveItem(BackpackItemInfo info)
     {
-        var slot = _slots[_slotIndex];
+        var slot = _slots[info.SlotIndex];
 
         if (slot.HasItem)
         {
@@ -100,7 +109,7 @@ public class BackpackManager : MonoBehaviour
     public BackpackItemInfo GetItemInfo()
     {
         var slot = _slots[_slotIndex];
-        return new BackpackItemInfo(_slotIndex,slot.Item, slot.HasItem);
+        return new BackpackItemInfo(_slotIndex,slot.Item, !slot.HasItem);
     }
     
     public class BackpackItemInfo
@@ -117,5 +126,6 @@ public class BackpackManager : MonoBehaviour
         }
 
     }
-    
+
+
 }
