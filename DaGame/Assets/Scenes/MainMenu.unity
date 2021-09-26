@@ -2925,8 +2925,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "TASARIMCI\n\nFuat Can Eryi\u011Fit\nEce Munar\n\nYAZILIMCI\n\nFuat Can
     Eryi\u011Fit\nAlpago G\xF6ktenay G\xF6k\xE7e\n\n2D ART\u0130STLER\n\nG\xF6kay
-    Tacal\n\u015Eeymanur Yaz\u0131c\u0131\nYaren Kuruy\n\nSES D\u0130ZAYN\n\nYusuf
-    K\u0131z\u0131lkaya\n\nYAZAR\n\nEce Munar\n\nHAMS\u0130\n\nZelal Deniz UYYYYy.\n"
+    Tacal\n\u015Eeymanur Yaz\u0131c\u0131\nYaren Kuruy\nYusuf K\u0131z\u0131lkaya\nEce
+    Munar\n\nSES D\u0130ZAYN\n\nYusuf K\u0131z\u0131lkaya\n\nYAZAR\n\nEce Munar\n\nHAMS\u0130\n\nZelal
+    Deniz UYYYYy.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
