@@ -34,7 +34,7 @@ public class GiveMemeCanvasController : MonoBehaviour
         
         if (isLong)
         {
-            imageDuration = duration / 3f;
+            imageDuration = (duration+1) / 3f;
         }
         
         
