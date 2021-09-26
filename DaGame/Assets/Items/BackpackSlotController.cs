@@ -37,12 +37,12 @@ public class BackpackSlotController : MonoBehaviour
         _hasItem = true;
     }
 
-    public Item RemoveItem()
+    public void RemoveItem()
     {
         _hasItem = false;
         _itemImage.enabled = false;
         _itemImage.sprite = null;
-        return _item;
+        _item = null;
     }
 
 

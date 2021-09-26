@@ -44289,6 +44289,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161795417}
   m_CullTransparentMesh: 1
+--- !u!1 &1181968164 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2487406950532764330, guid: 01bf7042d390063498b590966175cc1b, type: 3}
+  m_PrefabInstance: {fileID: 2487406950174024855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1181968165
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181968164}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8f9fca748f4e734eb7dde29046648a7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1185676186
 GameObject:
   m_ObjectHideFlags: 0
@@ -45655,6 +45679,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2487406950532764329, guid: 01bf7042d390063498b590966175cc1b, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2487406950532764329, guid: 01bf7042d390063498b590966175cc1b, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2487406950532764329, guid: 01bf7042d390063498b590966175cc1b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2487406950532764330, guid: 01bf7042d390063498b590966175cc1b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -45675,6 +45711,10 @@ PrefabInstance:
       propertyPath: walking
       value: 
       objectReference: {fileID: -3838331808388739579, guid: 7846559d23baac64880c9f6462a55ffb, type: 2}
+    - target: {fileID: 2487406950532764375, guid: 01bf7042d390063498b590966175cc1b, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1181968165}
     - target: {fileID: 2487406950532764375, guid: 01bf7042d390063498b590966175cc1b, type: 3}
       propertyPath: notWalking
       value: 

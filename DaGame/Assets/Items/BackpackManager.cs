@@ -143,7 +143,8 @@ public class BackpackManager : MonoBehaviour
 
                     if (!emptySlot.HasItem)
                     {
-                        emptySlot.InsertItem(slotToFit.RemoveItem());
+                        emptySlot.InsertItem(slotToFit.Item);
+                        slotToFit.RemoveItem();
                         break;
                     }
                 }

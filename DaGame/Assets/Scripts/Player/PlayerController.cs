@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private BackpackManager _backpackManager;
     [SerializeField] private GiveMemeCanvasController _giveMemeCanvasController;
-
+    [SerializeField] private Animator _animator;
+    
 
     private bool _isInRangeOfNpcInteraction;
     private bool _isInteractingWithNpc;
@@ -54,6 +55,43 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody2D.MovePosition(_rigidbody2D.position + new Vector2(x, y) * (WalkingSpeed * Time.fixedDeltaTime));
 
+        Vector2 movement = new Vector2(x, y);
+        movement.Normalize();
+
+        if (play)
+        {
+            if (Mathf.Abs(movement.y) > Mathf.Abs(movement.x))
+            {
+                if (movement.y > 0)
+                {
+                    _animator.SetInteger("WalkMode", 4);
+                }
+                else
+                {
+                    _animator.SetInteger("WalkMode", 3);
+                }
+            }
+            else
+            {
+                if (movement.x > 0)
+                {
+                    _animator.SetInteger("WalkMode", 2);
+                }
+                else
+                {
+                    _animator.SetInteger("WalkMode", 1);
+                }
+            }
+            
+            
+        }
+        else
+        {
+            _animator.SetInteger("WalkMode", 0);
+        }
+        
+        
+        
         PlayWalkSFX(play);
     }
 
