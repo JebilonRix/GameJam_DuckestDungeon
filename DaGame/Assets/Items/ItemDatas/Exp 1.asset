@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04e9c5c24233d874386525cea180ad59, type: 3}
-  m_Name: Selam
+  m_Name: Exp 1
   m_EditorClassIdentifier: 
   Name: 
-  Sprite: {fileID: 21300000, guid: 9ea729b10d5836c4e85dd870c409ed14, type: 3}
+  Sprite: {fileID: 21300000, guid: 55f01112ecb4b0e41864bf8c012a49c5, type: 3}

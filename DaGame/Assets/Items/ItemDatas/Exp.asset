@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Exp
   m_EditorClassIdentifier: 
   Name: 
-  Sprite: {fileID: 21300000, guid: 0bd526598a015c34c96831fc88546207, type: 3}
+  Sprite: {fileID: 21300000, guid: 55f01112ecb4b0e41864bf8c012a49c5, type: 3}

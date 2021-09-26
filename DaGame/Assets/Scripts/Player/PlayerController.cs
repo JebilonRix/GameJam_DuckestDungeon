@@ -4,6 +4,7 @@ using DG.Tweening;
 using SEP;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,13 +19,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioMixerSnapshot walking;
     [SerializeField] private AudioMixerSnapshot notWalking;
     [SerializeField] private AudioMixer mixer;
-
+    [SerializeField] private AudioClip _denied;
+    [SerializeField] private AudioClip _outro;
+    
     [Header("Depedencies")] 
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private BackpackManager _backpackManager;
     [SerializeField] private GiveMemeCanvasController _giveMemeCanvasController;
     [SerializeField] private Animator _animator;
-    
+    [SerializeField] private Item _hug;
 
     private bool _isInRangeOfNpcInteraction;
     private bool _isInteractingWithNpc;
@@ -49,6 +52,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
+        _backpackManager.InsertItem(_hug);
         source.Play();
     }
     public void Move(float x, float y, bool play = true)
@@ -202,6 +206,12 @@ public class PlayerController : MonoBehaviour
         _moveLeftFlag.SetFlags();
         _interactionFlag.SetFlags();
         _confirmationFlag.SetFlags();
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
+        }
+
     }
     
     public void FixedUpdate()
@@ -310,6 +320,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                AudioManager.instance.TakeMemeSound(_denied);
                 _backpackManager.CloseBackpack();
             }
         }
@@ -319,12 +330,22 @@ public class PlayerController : MonoBehaviour
 
     public void TakeItemFromNpc(List<Item> pairsItemsWeGive, List<Sprite> giveMem, bool isLong, float duration)
     {
-        Tween giveTween = _giveMemeCanvasController.ActivateMeme(giveMem, isLong, duration).OnKill(() =>
+        if (giveMem != null && giveMem.Count >1)
         {
+            
+            Tween giveTween = _giveMemeCanvasController.ActivateMeme(giveMem, isLong, duration).OnKill(() =>
+            {
+                _backpackManager.CloseBackpack();
+                _backpackManager.AddItems(pairsItemsWeGive);
+            });
+        }
+        else
+        {
+            AudioManager.instance.TakeMemeSound(_outro);
+            _giveMemeCanvasController.FadeOutThingOutro();
             _backpackManager.CloseBackpack();
             _backpackManager.AddItems(pairsItemsWeGive);
-        });
-        
+        }
 
     }
 }

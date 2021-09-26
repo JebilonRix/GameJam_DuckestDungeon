@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Kuruyemis
   m_EditorClassIdentifier: 
   Name: 
-  Sprite: {fileID: 21300000, guid: 0bd526598a015c34c96831fc88546207, type: 3}
+  Sprite: {fileID: 21300000, guid: d2ce8267f6ef1084e9e3c0b9abbdf7cd, type: 3}

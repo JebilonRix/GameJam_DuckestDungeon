@@ -9,6 +9,7 @@ public class GiveMemeCanvasController : MonoBehaviour
     [Header("Dependencies")]
     [SerializeField] private Image _giveMemImage;
     [SerializeField] private Image _giveMemImage2;
+    [SerializeField] private Sprite _outro;
 
     [Header("Settings")] 
     [SerializeField] private float _fadeInDuration = 0.25f;
@@ -89,5 +90,20 @@ public class GiveMemeCanvasController : MonoBehaviour
             _giveMemImage2.enabled = false;
 
         });
+    }
+
+    public void FadeOutThingOutro()
+    {
+        _giveMemImage.enabled = false;
+        _giveMemImage2.enabled = true;
+        _giveMemImage2.color= Color.black;
+        _giveMemImage2.sprite = _outro;
+        
+        DOVirtual.Float(0,1,5, (float k) =>
+        {
+            _giveMemImage2.color = Color.Lerp(Color.black,  new Color(1,1,1,1), k);
+            
+        } );
+
     }
 }

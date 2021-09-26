@@ -167,7 +167,15 @@ public class NpcController : MonoBehaviour
                     }
                 }
 
-                playerController.TakeItemFromNpc(pair.ItemsWeGive, _npcData.TakeSprites, !_isSoundPlayed, _npcData.OnTakeAudioClip.length);
+                if (_npcData.OnTakeAudioClip != null)
+                {
+                    
+                    playerController.TakeItemFromNpc(pair.ItemsWeGive, _npcData.TakeSprites, !_isSoundPlayed, _npcData.OnTakeAudioClip.length);
+                }
+                else
+                {
+                    playerController.TakeItemFromNpc(pair.ItemsWeGive, _npcData.TakeSprites, false, 0);
+                }
 
                 if (!_isSoundPlayed)
                 {

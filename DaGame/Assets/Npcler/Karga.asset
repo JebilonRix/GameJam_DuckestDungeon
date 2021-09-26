@@ -21,11 +21,11 @@ MonoBehaviour:
   - ItemsWeNeed:
     - {fileID: 11400000, guid: 23b9adb8801b6d64eb8a942ce4b68c5a, type: 2}
     ItemsWeGive:
-    - {fileID: 11400000, guid: 88771ad26b2bc84428a574c979545ddf, type: 2}
+    - {fileID: 11400000, guid: 722343b280f2227419c59acf8c8b6b89, type: 2}
   - ItemsWeNeed:
     - {fileID: 11400000, guid: d0db0644ecddd9e46b191570098833a5, type: 2}
     ItemsWeGive:
-    - {fileID: 11400000, guid: 88771ad26b2bc84428a574c979545ddf, type: 2}
+    - {fileID: 11400000, guid: 52db8eb1a8884354cab56fc539cccc1b, type: 2}
   TakeSprites:
   - {fileID: -268782334616202106, guid: a9286e53d10491e4d84f2a8284b0d80d, type: 3}
   - {fileID: 4972630611624520632, guid: a9286e53d10491e4d84f2a8284b0d80d, type: 3}

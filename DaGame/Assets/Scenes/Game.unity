@@ -1550,6 +1550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _giveMemImage: {fileID: 275477705}
   _giveMemImage2: {fileID: 1563218938}
+  _outro: {fileID: 21300000, guid: 2f8e0bfae5e5dfb42974e2002c763ff5, type: 3}
   _fadeInDuration: 0.25
   _fadeOutDuration: 0.5
   _imageDuration: 1
@@ -44458,7 +44459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5256930960575151640, guid: 75986ddc32799b94ba1f5d01559803c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 47.68
+      value: 53.56
       objectReference: {fileID: 0}
     - target: {fileID: 5256930960575151640, guid: 75986ddc32799b94ba1f5d01559803c3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -45731,6 +45732,18 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2487406950532764375, guid: 01bf7042d390063498b590966175cc1b, type: 3}
+      propertyPath: _hug
+      value: 
+      objectReference: {fileID: 11400000, guid: 5547f5763cb5f9148a9390bed4dacec9, type: 2}
+    - target: {fileID: 2487406950532764375, guid: 01bf7042d390063498b590966175cc1b, type: 3}
+      propertyPath: _outro
+      value: 
+      objectReference: {fileID: 8300000, guid: e70d297a5a5f3944f86b20a084d3e1ad, type: 3}
+    - target: {fileID: 2487406950532764375, guid: 01bf7042d390063498b590966175cc1b, type: 3}
+      propertyPath: _denied
+      value: 
+      objectReference: {fileID: 8300000, guid: 741b27280da3874448581b8fc3e6b9e6, type: 3}
     - target: {fileID: 2487406950532764375, guid: 01bf7042d390063498b590966175cc1b, type: 3}
       propertyPath: walking
       value: 
