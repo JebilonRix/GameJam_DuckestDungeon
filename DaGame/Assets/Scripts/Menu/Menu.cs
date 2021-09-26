@@ -9,7 +9,7 @@ public class Menu : MonoBehaviour
     {
         Button_ChangeUiTo(0);
     }
-    public void Button_Play(string sceneName)
+    public void Button_LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
