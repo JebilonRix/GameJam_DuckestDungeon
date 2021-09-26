@@ -1,16 +1,24 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class BackpackManager : MonoBehaviour
 {
     [Header("Dependendices")] 
     [SerializeField] private GameObject _ctnBackpack;
+
+    [SerializeField] private RectTransform _ctnBackpackRectTransform;
     [SerializeField] private List<BackpackSlotController> _slots;
+
 
     [Header("Settings")]
     [SerializeField] private float _someSetting;
+
+    private float _backpackDisabledYPos = -250;
+
+    private float _backpackEnabledYPos = 0;
 
     private bool _isBackpackActive;
     private int _slotIndex;
@@ -19,14 +27,14 @@ public class BackpackManager : MonoBehaviour
 
     private void Start()
     {
-        CloseBackpack();
+        CloseBackpack(true);
     }
 
     public void OnRightCommandTrigger()
     {
         _slotIndex = (_slotIndex+1) % _slots.Count;
     }
-    
+
     public void OnLeftCommandTrigger()
     {
         _slotIndex = (_slotIndex-1) % _slots.Count;
@@ -35,15 +43,38 @@ public class BackpackManager : MonoBehaviour
     public void OpenBackpack()
     {
         _isBackpackActive = true;
+
+        _ctnBackpackRectTransform.anchoredPosition = new Vector2(0, _backpackDisabledYPos);
         _ctnBackpack.SetActive(true);
+        _ctnBackpackRectTransform.DOAnchorPosY(_backpackEnabledYPos, 0.5f);
     }
 
-    public void CloseBackpack()
+    public void CloseBackpack( bool Immediate = false)
     {
-        _isBackpackActive = false;
-        _ctnBackpack.SetActive(false);
+
+        if (Immediate)
+        {
+            _ctnBackpack.SetActive(false);
+            _ctnBackpackRectTransform.anchoredPosition = new Vector2(0, _backpackEnabledYPos);
+            _isBackpackActive = false;
+        }
+        else
+        {
+            _ctnBackpackRectTransform.anchoredPosition = new Vector2(0, _backpackEnabledYPos);
+            _isBackpackActive = false;
+            _ctnBackpackRectTransform.DOAnchorPosY(_backpackDisabledYPos, 0.5f)
+                .SetEase(Ease.InBack)
+                .OnComplete( () =>
+                {
+                    _ctnBackpack.SetActive(false);
+                } );
+        }
+
+        
+       
     }
-    
+
+
     public void InsertItem(Item item)
     {
         bool itemInserted = false;
@@ -105,27 +136,24 @@ public class BackpackManager : MonoBehaviour
         }
         
     }
-    
+
     public BackpackItemInfo GetItemInfo()
     {
         var slot = _slots[_slotIndex];
         return new BackpackItemInfo(_slotIndex,slot.Item, !slot.HasItem);
     }
-    
+
     public class BackpackItemInfo
     {
-        public Item Item;
         public bool IsEmpty;
+        public Item Item;
         public int SlotIndex;
-        
+
         public BackpackItemInfo( int slotIndex, Item item,  bool isEmpty = false)
         {
             this.Item = item;
             this.IsEmpty = isEmpty;
             this.SlotIndex = slotIndex;
         }
-
     }
-
-
 }

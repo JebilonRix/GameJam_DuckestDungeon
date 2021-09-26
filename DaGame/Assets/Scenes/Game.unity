@@ -4083,5 +4083,13 @@ PrefabInstance:
       propertyPath: _slots.Array.data[9]
       value: 
       objectReference: {fileID: 933868543}
+    - target: {fileID: 7218737913559307461, guid: 5022b9d6bf78125489158fe2f34005c2, type: 3}
+      propertyPath: _ctnBackpackRectTransform
+      value: 
+      objectReference: {fileID: 1185676187}
+    - target: {fileID: 7218737913559307461, guid: 5022b9d6bf78125489158fe2f34005c2, type: 3}
+      propertyPath: _ctnBackpackRectTrasnform
+      value: 
+      objectReference: {fileID: 1185676187}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5022b9d6bf78125489158fe2f34005c2, type: 3}
