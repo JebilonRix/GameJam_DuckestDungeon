@@ -185,7 +185,7 @@ public class PlayerController : MonoBehaviour
                 var info = _backpackManager.GetItemInfo();
 
                 OnGetItemInfoFromBackpack(info);
-                _backpackManager.CloseBackpack();
+           
 
             }
             
@@ -270,15 +270,20 @@ public class PlayerController : MonoBehaviour
                     _backpackManager.RemoveItem(info);
                 }
             }
+            else
+            {
+                _backpackManager.CloseBackpack();
+            }
         }
+        
         
     }
 
     public void TakeItemFromNpc(List<Item> pairsItemsWeGive, List<Sprite> giveMem)
     {
-        Tween giveTween = _giveMemeCanvasController.ActivateMeme(giveMem).OnComplete(() =>
+        Tween giveTween = _giveMemeCanvasController.ActivateMeme(giveMem).OnKill(() =>
         {
-                    
+            _backpackManager.CloseBackpack();
             DOVirtual.DelayedCall(1f, () =>
             {
                 _backpackManager.AddItems(pairsItemsWeGive);
