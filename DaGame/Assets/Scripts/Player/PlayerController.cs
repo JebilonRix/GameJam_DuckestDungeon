@@ -22,7 +22,9 @@ public class PlayerController : MonoBehaviour
     [Header("Depedencies")] 
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private BackpackManager _backpackManager;
-    
+    [SerializeField] private GiveMemeCanvasController _giveMemeCanvasController;
+
+
     private bool _isInRangeOfNpcInteraction;
     private bool _isInteractingWithNpc;
     private NpcController _inRangeNpcController;
@@ -272,11 +274,17 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void TakeItemFromNpc(List<Item> pairsItemsWeGive)
+    public void TakeItemFromNpc(List<Item> pairsItemsWeGive, List<Sprite> giveMem)
     {
-        DOVirtual.DelayedCall(1f, () =>
+        Tween giveTween = _giveMemeCanvasController.ActivateMeme(giveMem).OnComplete(() =>
         {
-            _backpackManager.AddItems(pairsItemsWeGive);
+                    
+            DOVirtual.DelayedCall(1f, () =>
+            {
+                _backpackManager.AddItems(pairsItemsWeGive);
+            });
         });
+        
+
     }
 }

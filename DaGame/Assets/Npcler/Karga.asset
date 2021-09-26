@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67d3e7dec65406c45ac97c959f71e95b, type: 3}
+  m_Name: Karga
+  m_EditorClassIdentifier: 
+  IdleAnim: {fileID: 9100000, guid: 1c18b54abd6994d4392fb99749f4a7c7, type: 2}
+  Pairs:
+  - ItemsWeNeed:
+    - {fileID: 11400000, guid: a09b448c25c193140809913fb53bbc4f, type: 2}
+    ItemsWeGive:
+    - {fileID: 11400000, guid: 88771ad26b2bc84428a574c979545ddf, type: 2}
+  - ItemsWeNeed:
+    - {fileID: 11400000, guid: 23b9adb8801b6d64eb8a942ce4b68c5a, type: 2}
+    ItemsWeGive:
+    - {fileID: 11400000, guid: 88771ad26b2bc84428a574c979545ddf, type: 2}
+  - ItemsWeNeed:
+    - {fileID: 11400000, guid: d0db0644ecddd9e46b191570098833a5, type: 2}
+    ItemsWeGive:
+    - {fileID: 11400000, guid: 88771ad26b2bc84428a574c979545ddf, type: 2}
+  TakeSprites:
+  - {fileID: -268782334616202106, guid: a9286e53d10491e4d84f2a8284b0d80d, type: 3}
+  - {fileID: 4972630611624520632, guid: a9286e53d10491e4d84f2a8284b0d80d, type: 3}
+  - {fileID: 8103860498203711217, guid: a9286e53d10491e4d84f2a8284b0d80d, type: 3}

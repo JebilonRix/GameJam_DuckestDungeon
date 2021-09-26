@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04e9c5c24233d874386525cea180ad59, type: 3}
-  m_Name: El_Bombasi
+  m_Name: "Bisk\xFCvi"
   m_EditorClassIdentifier: 
-  nameOfItem: elBombasi
-  spriteofItem: {fileID: 0}
+  Name: 
+  Sprite: {fileID: 21300000, guid: 17bb5353b2c68324b8d014268b835a60, type: 3}

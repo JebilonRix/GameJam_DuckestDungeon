@@ -153,7 +153,7 @@ public class NpcController : MonoBehaviour
                     }
                 }
 
-                playerController.TakeItemFromNpc(pair.ItemsWeGive);
+                playerController.TakeItemFromNpc(pair.ItemsWeGive, _npcData.TakeSprites);
                 _pairs.RemoveAt(i);
                 
                 

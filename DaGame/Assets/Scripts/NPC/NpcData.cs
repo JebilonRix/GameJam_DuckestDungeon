@@ -9,6 +9,8 @@ public class NpcData : ScriptableObject
     [FormerlySerializedAs("_idleAnim")] public RuntimeAnimatorController IdleAnim;
 
     public List<ItemPairs> Pairs;
+    public List<Sprite> TakeSprites;
+    
 }
 
 [System.Serializable]

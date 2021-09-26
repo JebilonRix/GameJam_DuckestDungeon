@@ -10,6 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67d3e7dec65406c45ac97c959f71e95b, type: 3}
-  m_Name: RedPanda
+  m_Name: Kedi
   m_EditorClassIdentifier: 
-  _idleAnim: {fileID: 9100000, guid: 7b6342a6a1390ae4c906b5727008ef6d, type: 2}
+  IdleAnim: {fileID: 9100000, guid: 4d21e7422bea7af4fa93f4969fef6187, type: 2}
+  Pairs: []
+  TakeSprites:
+  - {fileID: 9212622903005025987, guid: 7c4ab9dd4975cc646a5b5b8db60312a1, type: 3}
+  - {fileID: 7694130155886038556, guid: 7c4ab9dd4975cc646a5b5b8db60312a1, type: 3}
+  - {fileID: -776585644836929119, guid: 7c4ab9dd4975cc646a5b5b8db60312a1, type: 3}
