@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,37 @@ public class NpcController : MonoBehaviour
 {
     [Header("Dependencies")]
     [SerializeField] private NpcPopupController _popupController;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private NpcData _npcData;
+
+   [SerializeField] private List<ItemPairs> _pairs;
+  [SerializeField]  private List<Item> _itemsWeHave;
+    
+    private void Start()
+    {
+        _animator.runtimeAnimatorController = _npcData.IdleAnim;
+        _pairs = new List<ItemPairs>();
+        _itemsWeHave = new List<Item>();
+
+        for (int i = 0; i < _npcData.Pairs.Count; i++)
+        {
+            ItemPairs emptyPair = new ItemPairs();
+            ItemPairs fullPair = _npcData.Pairs[i];
+            
+            foreach (var VARIABLE in fullPair.ItemsWeGive)
+            {
+                emptyPair.ItemsWeGive.Add(VARIABLE);
+            }
+            
+            foreach (var VARIABLE in fullPair.ItemsWeNeed)
+            {
+                emptyPair.ItemsWeNeed.Add(VARIABLE);
+            }
+            
+            _pairs.Add(emptyPair);
+        }
+
+    }
 
     public void PlayerUpSignal()
     {
@@ -48,11 +80,86 @@ public class NpcController : MonoBehaviour
 
     public bool IsItemFeasible(BackpackManager.BackpackItemInfo info)
     {
-        return true;
+        Item item = info.Item;
+
+        foreach (var parList in _pairs)
+        {
+            foreach (var VARIABLE in parList.ItemsWeNeed)
+            {
+                if (item == VARIABLE)
+                {
+                    return true;
+                }
+            }
+          
+        }
+        
+        return false;
     }
 
-    public void FeedItem(BackpackManager.BackpackItemInfo info)
+    public void FeedItem(BackpackManager.BackpackItemInfo info, PlayerController playerController)
     {
-        
+        _itemsWeHave.Add(info.Item);
+         OnItemAdded(playerController);
+    }
+
+    private void OnItemAdded(PlayerController playerController)
+    {
+
+        for (int i = _pairs.Count - 1; i >= 0; i--)
+        {
+            ItemPairs pair = _pairs[i];
+            bool weFoundMatchingPair = true;
+            
+            for (int j = 0; j < pair.ItemsWeNeed.Count; j++)
+            {
+                Item weNeed = pair.ItemsWeNeed[j];
+                bool weDontHaveTheItem = true;
+                for (int k = 0; k < _itemsWeHave.Count; k++)
+                {
+                    Item weHave = _itemsWeHave[k];
+
+                    if (weNeed == weHave)
+                    {
+                        weDontHaveTheItem = false;
+                        break;
+                    }
+                }
+
+                if (weDontHaveTheItem)
+                {
+                    weFoundMatchingPair = false;
+                    break;
+                }
+                
+            }
+
+            if (weFoundMatchingPair)
+            {
+
+                for (int j = pair.ItemsWeNeed.Count - 1; j >= 0; j--)
+                {
+                    Item weNeed = pair.ItemsWeNeed[j];
+
+                    for (int k = _itemsWeHave.Count - 1; k >= 0; k--)
+                    {
+                        Item weHave = _itemsWeHave[k];
+
+                        if (weNeed == weHave)
+                        {
+                            pair.ItemsWeNeed.RemoveAt(j);
+                            _itemsWeHave.RemoveAt(k);
+                        }
+                    }
+                }
+
+                playerController.TakeItemFromNpc(pair.ItemsWeGive);
+                _pairs.RemoveAt(i);
+                
+                
+                break;
+            }
+            
+        }
     }
 }

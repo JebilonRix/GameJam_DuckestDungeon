@@ -175,4 +175,12 @@ public class BackpackManager : MonoBehaviour
             this.SlotIndex = slotIndex;
         }
     }
+
+    public void AddItems(List<Item> pairsItemsWeGive)
+    {
+        foreach (var VARIABLE in pairsItemsWeGive)
+        {
+            InsertItem(VARIABLE);
+        }
+    }
 }

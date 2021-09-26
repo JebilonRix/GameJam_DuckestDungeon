@@ -10,6 +10,7 @@ public class BackpackSlotController : MonoBehaviour
 
     [Header("Dependencies")] 
     [SerializeField] private Image _image;
+    [SerializeField] private Image _itemImage;
 
     [Header("Settings")]
     [SerializeField] private Color _selectColor;
@@ -25,17 +26,22 @@ public class BackpackSlotController : MonoBehaviour
     private void Awake()
     {
         OnDeselected(true);
+        _itemImage.enabled = false;
     }
 
     public void InsertItem(Item item)
     {
         this._item = item;
+        _itemImage.enabled = true;
+        _itemImage.sprite = item.Sprite;
         _hasItem = true;
     }
 
     public Item RemoveItem()
     {
         _hasItem = false;
+        _itemImage.enabled = false;
+        _itemImage.sprite = null;
         return _item;
     }
 

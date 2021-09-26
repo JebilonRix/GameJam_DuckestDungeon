@@ -44935,11 +44935,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5256930960575151640, guid: 75986ddc32799b94ba1f5d01559803c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: -5.28
       objectReference: {fileID: 0}
     - target: {fileID: 5256930960575151640, guid: 75986ddc32799b94ba1f5d01559803c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.28
+      value: 29.44
       objectReference: {fileID: 0}
     - target: {fileID: 5256930960575151640, guid: 75986ddc32799b94ba1f5d01559803c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -44973,6 +44973,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5256930960575151642, guid: 75986ddc32799b94ba1f5d01559803c3, type: 3}
+      propertyPath: _npcData
+      value: 
+      objectReference: {fileID: 11400000, guid: b56f0d690f52e1944b30aab8660a863f, type: 2}
     - target: {fileID: 5256930960575151654, guid: 75986ddc32799b94ba1f5d01559803c3, type: 3}
       propertyPath: m_Name
       value: Npc

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using DG.Tweening;
 using SEP;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -259,7 +261,7 @@ public class PlayerController : MonoBehaviour
         {
             if (_inRangeNpcController.IsItemFeasible(info))
             {
-                _inRangeNpcController.FeedItem(info);
+                _inRangeNpcController.FeedItem(info,this);
 
                 if (!info.IsEmpty)
                 {
@@ -268,5 +270,13 @@ public class PlayerController : MonoBehaviour
             }
         }
         
+    }
+
+    public void TakeItemFromNpc(List<Item> pairsItemsWeGive)
+    {
+        DOVirtual.DelayedCall(1f, () =>
+        {
+            _backpackManager.AddItems(pairsItemsWeGive);
+        });
     }
 }

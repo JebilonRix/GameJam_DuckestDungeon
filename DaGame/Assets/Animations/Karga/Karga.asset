@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67d3e7dec65406c45ac97c959f71e95b, type: 3}
+  m_Name: Karga
+  m_EditorClassIdentifier: 
+  IdleAnim: {fileID: 9100000, guid: 1c18b54abd6994d4392fb99749f4a7c7, type: 2}
+  Pairs:
+  - ItemsWeNeed: []
+    ItemsWeGive: []
+  - ItemsWeNeed: []
+    ItemsWeGive: []
+  - ItemsWeNeed: []
+    ItemsWeGive: []
