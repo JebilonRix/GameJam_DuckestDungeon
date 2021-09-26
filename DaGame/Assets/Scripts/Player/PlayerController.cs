@@ -279,15 +279,12 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void TakeItemFromNpc(List<Item> pairsItemsWeGive, List<Sprite> giveMem)
+    public void TakeItemFromNpc(List<Item> pairsItemsWeGive, List<Sprite> giveMem, bool isLong, float duration)
     {
-        Tween giveTween = _giveMemeCanvasController.ActivateMeme(giveMem).OnKill(() =>
+        Tween giveTween = _giveMemeCanvasController.ActivateMeme(giveMem, isLong, duration).OnKill(() =>
         {
             _backpackManager.CloseBackpack();
-            DOVirtual.DelayedCall(1f, () =>
-            {
-                _backpackManager.AddItems(pairsItemsWeGive);
-            });
+            _backpackManager.AddItems(pairsItemsWeGive);
         });
         
 

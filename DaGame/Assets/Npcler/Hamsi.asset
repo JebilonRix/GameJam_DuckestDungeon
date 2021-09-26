@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: Hamsi
   m_EditorClassIdentifier: 
   IdleAnim: {fileID: 9100000, guid: 219ce8d13674b8247907c18d2d7fb5f6, type: 2}
-  Pairs: []
+  Pairs:
+  - ItemsWeNeed:
+    - {fileID: 11400000, guid: e0f5ef54295a6f24f98b543083c1718e, type: 2}
+    ItemsWeGive:
+    - {fileID: 11400000, guid: 00b646c320df19e438f6f93e0aad3a33, type: 2}
+    - {fileID: 11400000, guid: d0db0644ecddd9e46b191570098833a5, type: 2}
   TakeSprites:
   - {fileID: 1471553536044746450, guid: f53a690ca17a8084f9c343cc0ed3db75, type: 3}
   - {fileID: 8805386023133339512, guid: f53a690ca17a8084f9c343cc0ed3db75, type: 3}
   - {fileID: -7658558640704256110, guid: f53a690ca17a8084f9c343cc0ed3db75, type: 3}
   OnTakeAudioClip: {fileID: 8300000, guid: d14d0752f14c5b2479956409711c6479, type: 3}
+  EmotionSprite: {fileID: 0}

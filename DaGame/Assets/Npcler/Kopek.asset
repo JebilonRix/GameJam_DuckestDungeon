@@ -13,9 +13,16 @@ MonoBehaviour:
   m_Name: Kopek
   m_EditorClassIdentifier: 
   IdleAnim: {fileID: 9100000, guid: 65289e2489469254981e1ef9f95dc19e, type: 2}
-  Pairs: []
+  Pairs:
+  - ItemsWeNeed: []
+    ItemsWeGive: []
+  - ItemsWeNeed:
+    - {fileID: 11400000, guid: 00b646c320df19e438f6f93e0aad3a33, type: 2}
+    ItemsWeGive:
+    - {fileID: 11400000, guid: b62ae5569eed2a344b17bddf151554b8, type: 2}
   TakeSprites:
   - {fileID: 2683759846086916976, guid: c770b62a868f38e41933fb1d81f94d87, type: 3}
   - {fileID: 5226958060843621497, guid: c770b62a868f38e41933fb1d81f94d87, type: 3}
   - {fileID: -4451876459930022645, guid: c770b62a868f38e41933fb1d81f94d87, type: 3}
   OnTakeAudioClip: {fileID: 8300000, guid: 4e4ef0a121d0c2046b3c9ad1b291daf6, type: 3}
+  EmotionSprite: {fileID: 0}

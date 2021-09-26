@@ -15,11 +15,13 @@ MonoBehaviour:
   IdleAnim: {fileID: 9100000, guid: 6ea84444c9a07b945aed51d063623139, type: 2}
   Pairs:
   - ItemsWeNeed:
-    - {fileID: 0}
+    - {fileID: 11400000, guid: 5547f5763cb5f9148a9390bed4dacec9, type: 2}
     ItemsWeGive:
-    - {fileID: 11400000, guid: e86c7779ecac164439d389008e2ed732, type: 2}
+    - {fileID: 11400000, guid: ab57f2b00f5c4a846b40ba65fce25c2f, type: 2}
+    - {fileID: 11400000, guid: a09b448c25c193140809913fb53bbc4f, type: 2}
   TakeSprites:
   - {fileID: 8636309210062467026, guid: 7e310b2bd8ea1814984e9f929521c98d, type: 3}
   - {fileID: -5964979712284762127, guid: 7e310b2bd8ea1814984e9f929521c98d, type: 3}
   - {fileID: 3791844439247826646, guid: 7e310b2bd8ea1814984e9f929521c98d, type: 3}
   OnTakeAudioClip: {fileID: 8300000, guid: 28f3615d9b6f071468e828a0452a626d, type: 3}
+  EmotionSprite: {fileID: 0}

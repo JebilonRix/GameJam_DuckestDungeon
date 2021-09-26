@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: RedPanda
   m_EditorClassIdentifier: 
   IdleAnim: {fileID: 9100000, guid: 7b6342a6a1390ae4c906b5727008ef6d, type: 2}
-  Pairs: []
+  Pairs:
+  - ItemsWeNeed:
+    - {fileID: 0}
+    ItemsWeGive:
+    - {fileID: 11400000, guid: e0f5ef54295a6f24f98b543083c1718e, type: 2}
   TakeSprites:
   - {fileID: -239660735098834058, guid: 935587faf33fb754ba3aee6e3d6a3630, type: 3}
   - {fileID: -8806422053186766494, guid: 935587faf33fb754ba3aee6e3d6a3630, type: 3}
   - {fileID: 161439974947182708, guid: 935587faf33fb754ba3aee6e3d6a3630, type: 3}
   OnTakeAudioClip: {fileID: 8300000, guid: dc3bf417f89652f439d5968f0dcfee2f, type: 3}
+  EmotionSprite: {fileID: 0}

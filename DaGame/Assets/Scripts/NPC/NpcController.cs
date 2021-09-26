@@ -166,7 +166,7 @@ public class NpcController : MonoBehaviour
                     }
                 }
 
-                playerController.TakeItemFromNpc(pair.ItemsWeGive, _npcData.TakeSprites);
+                playerController.TakeItemFromNpc(pair.ItemsWeGive, _npcData.TakeSprites, !_isSoundPlayed, _npcData.OnTakeAudioClip.length);
 
                 if (!_isSoundPlayed)
                 {

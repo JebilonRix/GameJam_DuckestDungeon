@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: Kedi
   m_EditorClassIdentifier: 
   IdleAnim: {fileID: 9100000, guid: 4d21e7422bea7af4fa93f4969fef6187, type: 2}
-  Pairs: []
+  Pairs:
+  - ItemsWeNeed:
+    - {fileID: 11400000, guid: b62ae5569eed2a344b17bddf151554b8, type: 2}
+    ItemsWeGive:
+    - {fileID: 11400000, guid: f5c2e03ea48e32a44a03dda19c5c7c95, type: 2}
   TakeSprites:
   - {fileID: 9212622903005025987, guid: 7c4ab9dd4975cc646a5b5b8db60312a1, type: 3}
   - {fileID: 7694130155886038556, guid: 7c4ab9dd4975cc646a5b5b8db60312a1, type: 3}
   - {fileID: -776585644836929119, guid: 7c4ab9dd4975cc646a5b5b8db60312a1, type: 3}
   OnTakeAudioClip: {fileID: 8300000, guid: 8a7f7ae8e0b328c4f987768c59cd406a, type: 3}
+  EmotionSprite: {fileID: 0}
