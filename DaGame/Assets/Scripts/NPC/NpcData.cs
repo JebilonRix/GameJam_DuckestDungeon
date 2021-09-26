@@ -12,6 +12,7 @@ public class NpcData : ScriptableObject
     public List<Sprite> TakeSprites;
     public AudioClip OnTakeAudioClip;
     public Sprite EmotionSprite;
+    public float EmotionSizeMult = 1;
 }
 
 [System.Serializable]

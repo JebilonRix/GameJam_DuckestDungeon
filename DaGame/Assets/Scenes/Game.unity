@@ -44432,6 +44432,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1961949068}
     m_Modifications:
+    - target: {fileID: 1353383154877020182, guid: 75986ddc32799b94ba1f5d01559803c3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6787024
+      objectReference: {fileID: 0}
+    - target: {fileID: 1353383154877020182, guid: 75986ddc32799b94ba1f5d01559803c3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6787024
+      objectReference: {fileID: 0}
+    - target: {fileID: 1353383154877020182, guid: 75986ddc32799b94ba1f5d01559803c3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6787024
+      objectReference: {fileID: 0}
+    - target: {fileID: 1353383154877020182, guid: 75986ddc32799b94ba1f5d01559803c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1353383154877020182, guid: 75986ddc32799b94ba1f5d01559803c3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.31
+      objectReference: {fileID: 0}
     - target: {fileID: 5256930960575151640, guid: 75986ddc32799b94ba1f5d01559803c3, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -44483,6 +44503,10 @@ PrefabInstance:
     - target: {fileID: 5256930960575151654, guid: 75986ddc32799b94ba1f5d01559803c3, type: 3}
       propertyPath: m_Name
       value: Hamsi
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167688442755290028, guid: 75986ddc32799b94ba1f5d01559803c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.34
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75986ddc32799b94ba1f5d01559803c3, type: 3}

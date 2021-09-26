@@ -23,4 +23,5 @@ MonoBehaviour:
   - {fileID: 7694130155886038556, guid: 7c4ab9dd4975cc646a5b5b8db60312a1, type: 3}
   - {fileID: -776585644836929119, guid: 7c4ab9dd4975cc646a5b5b8db60312a1, type: 3}
   OnTakeAudioClip: {fileID: 8300000, guid: 8a7f7ae8e0b328c4f987768c59cd406a, type: 3}
-  EmotionSprite: {fileID: 0}
+  EmotionSprite: {fileID: 21300000, guid: cae258b2d26b19c498bec703ae920a67, type: 3}
+  EmotionSizeMult: 2

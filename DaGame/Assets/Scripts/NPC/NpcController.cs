@@ -69,6 +69,7 @@ public class NpcController : MonoBehaviour
                 case 0:
                     _emotionPopupBase.SetActive(true);
                     _emotionPopupSpriteRenderer.sprite = _npcData.EmotionSprite;
+                    _emotionPopupSpriteRenderer.transform.localScale = Vector3.one *_npcData.EmotionSizeMult;
                     DOVirtual.DelayedCall(1, () =>
                     {
                         _emotionPopupBase.SetActive(false);
