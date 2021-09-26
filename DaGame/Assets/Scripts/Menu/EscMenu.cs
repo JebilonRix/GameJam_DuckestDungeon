@@ -44,12 +44,6 @@ public class EscMenu : MonoBehaviour
         snapshotNormal.TransitionTo(0.2f);
     }
 
-    // IEnumerator ButtonDelay()
-    // {
-    //     yield return new WaitForSeconds(0.1f);
-    //     isActivated = !isActivated;
-    // }
-
     public void Button_Deactivate()
     {
         isActivated = false;
