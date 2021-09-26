@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
             if (_isInteractingWithNpc== false)
             {
                 _isInteractingWithNpc = true;
+                PlayWalkSFX(false);
             }
             
             _inRangeNpcController.PlayerInteractionSignal(this);
