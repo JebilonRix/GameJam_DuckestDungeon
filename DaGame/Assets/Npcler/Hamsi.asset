@@ -18,3 +18,4 @@ MonoBehaviour:
   - {fileID: 1471553536044746450, guid: f53a690ca17a8084f9c343cc0ed3db75, type: 3}
   - {fileID: 8805386023133339512, guid: f53a690ca17a8084f9c343cc0ed3db75, type: 3}
   - {fileID: -7658558640704256110, guid: f53a690ca17a8084f9c343cc0ed3db75, type: 3}
+  OnTakeAudioClip: {fileID: 8300000, guid: d14d0752f14c5b2479956409711c6479, type: 3}

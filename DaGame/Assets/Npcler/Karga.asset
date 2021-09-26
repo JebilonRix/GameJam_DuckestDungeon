@@ -30,3 +30,4 @@ MonoBehaviour:
   - {fileID: -268782334616202106, guid: a9286e53d10491e4d84f2a8284b0d80d, type: 3}
   - {fileID: 4972630611624520632, guid: a9286e53d10491e4d84f2a8284b0d80d, type: 3}
   - {fileID: 8103860498203711217, guid: a9286e53d10491e4d84f2a8284b0d80d, type: 3}
+  OnTakeAudioClip: {fileID: 8300000, guid: 1c79e86652d23784ab24c322a6a7bd2f, type: 3}

@@ -10,7 +10,8 @@ public class NpcData : ScriptableObject
 
     public List<ItemPairs> Pairs;
     public List<Sprite> TakeSprites;
-    
+    public AudioClip OnTakeAudioClip;
+    public Sprite EmotionSprite;
 }
 
 [System.Serializable]

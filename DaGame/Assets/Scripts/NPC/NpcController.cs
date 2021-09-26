@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class NpcController : MonoBehaviour
@@ -9,12 +10,16 @@ public class NpcController : MonoBehaviour
     [SerializeField] private NpcPopupController _popupController;
     [SerializeField] private Animator _animator;
     [SerializeField] private NpcData _npcData;
-
+    [SerializeField] private GameObject _emotionPopupBase;
+    [SerializeField] private SpriteRenderer _emotionPopupSpriteRenderer;
+    
    [SerializeField] private List<ItemPairs> _pairs;
   [SerializeField]  private List<Item> _itemsWeHave;
-    
+  private bool _isSoundPlayed;
+  
     private void Start()
     {
+        _emotionPopupBase.SetActive(false);
         _animator.runtimeAnimatorController = _npcData.IdleAnim;
         _pairs = new List<ItemPairs>();
         _itemsWeHave = new List<Item>();
@@ -61,7 +66,15 @@ public class NpcController : MonoBehaviour
         {
             switch (_popupController.GetCurrentIndex())
             {
-                case 0: break; // Talk
+                case 0:
+                    _emotionPopupBase.SetActive(true);
+                    _emotionPopupSpriteRenderer.sprite = _npcData.EmotionSprite;
+                    DOVirtual.DelayedCall(1, () =>
+                    {
+                        _emotionPopupBase.SetActive(false);
+                    });
+                    
+                    break; // Talk
                 case 1:
                     playerController.OpenBackpackSignal();
                     break; // trade
@@ -154,6 +167,16 @@ public class NpcController : MonoBehaviour
                 }
 
                 playerController.TakeItemFromNpc(pair.ItemsWeGive, _npcData.TakeSprites);
+
+                if (!_isSoundPlayed)
+                {
+                    if (_npcData.OnTakeAudioClip != null)
+                    {
+                        AudioManager.instance.TakeMemeSound(_npcData.OnTakeAudioClip);
+                    }
+                    _isSoundPlayed = true;
+                }
+                
                 _pairs.RemoveAt(i);
                 
                 

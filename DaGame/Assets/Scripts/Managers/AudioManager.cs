@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -7,8 +8,11 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
+    [SerializeField] private AudioMixerSnapshot _notWalking;
+    [SerializeField] private AudioMixerSnapshot _narration;
     [SerializeField] private AudioSource[] source;
-
+    [SerializeField] private AudioSource _takeMemeSource;
+    
     private void Awake()
     {
         if (instance == null)
@@ -36,4 +40,14 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
+
+    public void TakeMemeSound(AudioClip clip)
+    {
+        _takeMemeSource.PlayOneShot(clip);
+        _narration.TransitionTo(2f);
+        
+        DOVirtual.DelayedCall(clip.length, () => _notWalking.TransitionTo(1f));
+    }
+    
+    
 }
